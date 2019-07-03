@@ -26,6 +26,30 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        return "asd"
+        var ret_init: String? = null
+
+        var first_sym: Char? = null
+        var two_sym: Char? = null
+
+        first_sym = when(firstName){
+            null, " ", "" -> null
+            else -> firstName[0].toUpperCase()
+        }
+
+        two_sym = when(lastName){
+            null, " ", "" -> null
+            else -> lastName[0].toUpperCase()
+        }
+
+        if (first_sym != null) {
+            ret_init = first_sym.toString()
+//            ret_init = first_sym + two_sym
+        }
+
+        if (two_sym != null) {
+            ret_init += two_sym.toString()
+        }
+
+        return ret_init
     }
 }
