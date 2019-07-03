@@ -9,7 +9,7 @@ abstract class BaseMessage(
     val isInComing: Boolean = false,
     val date: Date = Date()
 ) {
-    abstract fun formatMassage() : String
+    abstract fun formatMessage() : String
 
     companion object AbstractFactory {
         var lastId = -1
