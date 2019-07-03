@@ -31,14 +31,14 @@ object Utils {
         var first_sym: Char? = null
         var two_sym: Char? = null
 
-        first_sym = when(firstName){
-            null, " ", "" -> null
-            else -> firstName[0].toUpperCase()
+        first_sym = when(firstName?.isBlank()){
+            true -> null
+            else -> firstName?.get(0)?.toUpperCase()
         }
 
-        two_sym = when(lastName){
-            null, " ", "" -> null
-            else -> lastName[0].toUpperCase()
+        two_sym = when(lastName?.isBlank()){
+            true -> null
+            else -> lastName?.get(0)?.toUpperCase()
         }
 
         if (first_sym != null) {
