@@ -1,5 +1,8 @@
 package ru.skillbranch.devintensive.utils
 
+import ru.skillbranch.devintensive.extensions.trimOrNull
+import java.util.*
+
 object Utils {
     fun parseFullName(fullName: String?) : Pair<String?, String?>{
 
@@ -26,34 +29,43 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        var ret_init: String? = null
+//        var ret_init: String? = null
+//
+//        var first_sym: Char? = null
+//        var two_sym: Char? = null
+//
+//        var _firstName = firstName?.trim()
+//        var _lastName = lastName?.trim()
+//
+//
+//        first_sym = when(_firstName?.isEmpty()){
+//            true -> null
+//            else -> _firstName?.get(0)?.toUpperCase()
+//        }
+//
+//        two_sym = when(_lastName?.isEmpty()){
+//            true -> null
+//            else -> _lastName?.get(0)?.toUpperCase()
+//        }
+//
+//        if (first_sym != null) {
+//            ret_init = first_sym.toString()
+////            ret_init = first_sym + two_sym
+//        }
+//
+//        if (two_sym != null) {
+//            ret_init += two_sym.toString()
+//        }
+//
+//        return ret_init
 
-        var first_sym: Char? = null
-        var two_sym: Char? = null
+        val firstInitial = firstName.trimOrNull()?.first()?.toString()?.toUpperCase(Locale("ru")) ?: ""
+        val secondInitial = lastName.trimOrNull()?.first()?.toString()?.toUpperCase(Locale("ru")) ?: ""
 
-        var _firstName = firstName?.trim()
-        var _lastName = lastName?.trim()
-
-
-        first_sym = when(_firstName?.isEmpty()){
-            true -> null
-            else -> _firstName?.get(0)?.toUpperCase()
+        return if (firstInitial.isEmpty() && secondInitial.isEmpty()) {
+            null
+        } else {
+            "$firstInitial$secondInitial"
         }
-
-        two_sym = when(_lastName?.isEmpty()){
-            true -> null
-            else -> _lastName?.get(0)?.toUpperCase()
-        }
-
-        if (first_sym != null) {
-            ret_init = first_sym.toString()
-//            ret_init = first_sym + two_sym
-        }
-
-        if (two_sym != null) {
-            ret_init += two_sym.toString()
-        }
-
-        return ret_init
     }
 }
