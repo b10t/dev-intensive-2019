@@ -1,8 +1,5 @@
 package ru.skillbranch.devintensive.utils
 
-import ru.skillbranch.devintensive.extensions.trimOrNull
-import java.util.*
-
 object Utils {
     fun parseFullName(fullName: String?) : Pair<String?, String?>{
 
@@ -29,6 +26,15 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
+        var _first = firstName?.trim()
+        var _secon = lastName?.trim()
+
+        if (_first.isNullOrEmpty() && _secon.isNullOrEmpty()) return null
+
+        _first = _first?.first()?.toUpperCase().toString()
+        _secon = _secon?.first()?.toUpperCase().toString()
+
+        return "$_first$_secon"
 //        var ret_init: String? = null
 //
 //        var first_sym: Char? = null
@@ -57,15 +63,15 @@ object Utils {
 //            ret_init += two_sym.toString()
 //        }
 //
-//        return ret_init
+//        return if (first_sym.isEm)
 
-        val firstInitial = firstName.trimOrNull()?.first()?.toString()?.toUpperCase(Locale("ru")) ?: ""
-        val secondInitial = lastName.trimOrNull()?.first()?.toString()?.toUpperCase(Locale("ru")) ?: ""
-
-        return if (firstInitial.isEmpty() && secondInitial.isEmpty()) {
-            null
-        } else {
-            "$firstInitial$secondInitial"
-        }
+//        val firstInitial = firstName.trimOrNull()?.first()?.toString()?.toUpperCase(Locale("ru")) ?: ""
+//        val secondInitial = lastName.trimOrNull()?.first()?.toString()?.toUpperCase(Locale("ru")) ?: ""
+//
+//        return if (firstInitial.isEmpty() && secondInitial.isEmpty()) {
+//            null
+//        } else {
+//            "$firstInitial$secondInitial"
+//        }
     }
 }
