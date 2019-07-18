@@ -103,6 +103,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, TextView.OnEdito
     override fun onClick(v: View?) {
         if  (v?.id == R.id.iv_send){
             sendAnswer()
+//            val op = isKeyboardClose()
+//            Log.d("M_MainActivity", "isKeyboardOpen = $op")
         }
     }
 
