@@ -21,7 +21,7 @@ fun Activity?.isKeyboardOpen(): Boolean {
 }
 
 
-fun Activity?.isKeyboardClose(): Boolean {
+fun Activity?.isKeyboardClosed(): Boolean {
     return ! _isKeyboardOpen(this)
 }
 
